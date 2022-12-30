@@ -350,9 +350,6 @@
                         if (i < startDay) {
                             noCount += 1;
                         }
-                        else if (i >= startDay) {
-                            // noCount = 0;
-                        }
                     }
                 }
 
@@ -368,54 +365,8 @@
                         if (i > endDay) {
                             noCount += 1;
                         }
-                        else if (i <= endDay) {
-                            // noCount = 0;
-                        }
-                    }
-                    else if (nowMonth < endMonth) {
-
                     }
                 }
-
-
-                // if (today.getFullYear() == startYear) { // 시작연도와 같으면서
-                //     if (nowMonth < realMonth) {         // 현재 달보다 작은 경우
-                //         noCount += 1;
-                //     } else if (nowMonth == realMonth) { // 현재 달과 같은 경우
-                //         if (i < startDay) {
-                //             noCount += 1;
-                //         }
-                //     }
-                // }
-                //
-                // // else
-                // if (today.getFullYear() > endYear) {            // 끝나는 연도보다 클 경우
-                //     noCount += 1;
-                // } else if (today.getFullYear() == endYear) {           // 끝나는 연도랑 같으면서
-                //     if (nowMonth > endMonth) {                        // 끝나는 달보다 클 경우
-                //         noCount += 1;
-                //     } else if (nowMonth == endMonth) {               // 끝나는 달과 같을 경우
-                //         if (i > endDay) {                           // 끝나는 일보다 클 경우
-                //             noCount += 1;
-                //         }
-                //     }
-                // }
-                // else if (today.getFullYear() < startYear) {       // 시작하는 연도보다 작을 경우
-                //     if (nowMonth == startMonth) {              // 시작하는 달과 같은 경우
-                //         if (i < startDay) {                         // 시작하는 일보다 작은 경우
-                //             noCount += 1;
-                //         }
-                //     // } else if (nowMonth < startMonth) {
-                //     //     noCount += 1;
-                //     // } else if (nowMonth > startMonth) {
-                //     //         // noCount = 0;
-                //     }
-                // }
-
-
-
-                // } && today.getMonth() >= endMonth && i >= endDay ) {
-                //     noCount+= 1;
 
                 <%--const contentStartDate = ${content.contentStartDate};--%>
                 <%--const contentEndDate = ${content.contentEndDate};--%>

@@ -9,6 +9,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="my" tagdir="/WEB-INF/tags" %>
 <%@ page import="java.net.*" %>
+<c:set var="path" value="${pageContext.request.contextPath}" />
 
 
 <html>
@@ -24,15 +25,15 @@
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
           integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <link href="../css/templatemo-xtra-blog.css" rel="stylesheet">
+    <link href="${path}/css/bootstrap.min.css" rel="stylesheet">
+    <link href="${path}/css/templatemo-xtra-blog.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.8.0/proj4.js"
             integrity="sha512-ha3Is9IgbEyIInSb+4S6IlEwpimz00N5J/dVLQFKhePkZ/HywIbxLeEu5w+hRjVBpbujTogNyT311tluwemy9w=="
             crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!-- 네이버 스마트에디터  -->
-    <script type="text/javascript" src="../libs/smarteditor/js/service/HuskyEZCreator.js" charset="utf-8"></script>
-    <script type="application/json" src="/code.jquery.com/jquery-1.11.0.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="${path}/libs/smarteditor/js/service/HuskyEZCreator.js" charset="utf-8"></script>
+    <script type="application/json" src="${path}/code.jquery.com/jquery-1.11.0.min.js" charset="utf-8"></script>
     <link rel="shortcut icon" href="#">
 
     <title>전시회 수정</title>
@@ -237,7 +238,7 @@
     </style>
 </head>
 <body>
-<div class="container-md" style="max-width: 900px;min-width: 500px">
+<div class="container-md" style="max-width: 900px;min-width: 300px">
     <div class="row mt-5">
         <div class="col" style="border: 30px solid #c6f1f1; padding: 90px">
             <h1 style="font-family: 'LINESeedKR-Bd'">

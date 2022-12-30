@@ -4,7 +4,6 @@
 <%@ page import="java.net.*" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -16,6 +15,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
           integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <c:set var="path" value="${pageContext.request.contextPath}" />
 
 
     <style>
@@ -356,7 +356,6 @@
 </head>
 <body>
 <my:sideBar/>
-
 <div>
     <div class="container-fluid" >
         <main class="tm-main" >
@@ -410,14 +409,14 @@
 
             <div>
             <!-- 포스터 및 기본 정보 -->
-            <hr class="tm-hr-primary tm-mb-45" style="width:720px;">
-            <div class="row" style="display: block;width:720px;">
-                <div class="col-12" style="display:inline-block;min-width:50%;max-width:50%;height:400px;overflow: hidden">
+            <hr class="tm-hr-primary tm-mb-45" style="max-width:720px;">
+            <div class="row" style="display: block;max-width:720px;">
+                <div class="col-12" style="display:inline-block;max-width:400px;height:400px;">
                     <img src="${imgUrl}/${content.contentId}/${content.contentPosterName}" alt="Image"
-                         class="img-fluid" style="max-width: 370px;">
+                         class="img-fluid" style="">
                 </div>
                 <aside class="col-lg-4 tm-aside-col"
-                       style="display: inline-block;vertical-align: top;width:20rem;margin-top: 0.4rem;">
+                       style="display: inline-block;vertical-align: top;width:auto;margin-top: 0.4rem;">
                     <div class="tm-post-sidebar">
                         <%-- <h2 class="tm-mb-40 tm-post-title tm-color-primary">Related Posts</h2>--%>
                         <figcaption style="font-family: LINESeedKR-Bd" class="tm-color-primary">장소</figcaption>
@@ -452,11 +451,11 @@
             <input type="hidden" readonly value="${content.contentAddress}" id='address'>
 
             <!-- 본문 및 디테일 이미지 -->
-            <hr class="tm-hr-primary tm-mb-45" style="width:720px;margin-top:45px;">
+            <hr class="tm-hr-primary tm-mb-45" style="max-width:720px;margin-top:45px;">
 
-            <div class="row tm-row" style="width:720px;">
+            <div class="row tm-row" style="max-width:720px;">
                 <div class="tm-post-col" style="">
-                    <div class="tm-post-full" style="max-width: 720px">
+                    <div class="tm-post-full" style="max-width: 100%">
                         <div class="mb-4">
                             <p style="">
                                 ${content.contentBoard}
@@ -464,8 +463,8 @@
                             <c:forEach items="${content.contentDetailName}" var="contentDetailName"
                                        varStatus="status">
                                 <div class="row">
-                                    <div class="col-10">
-                                        <img class="img-fluid img-thumbnail" style="width:720px !important;"
+                                    <div class="">
+                                        <img class="img-fluid img-thumbnail" style="max-width:100%;"
                                              src="${imgUrl}/${content.contentId}/${URLEncoder.encode(contentDetailName, 'utf-8')}"
                                              alt="">
                                     </div>
@@ -597,7 +596,7 @@
 
 
 <!-- 지도 -->
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9c69650c14dccf7d58695456e5f600e2"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b784d9b11d804d5deaf1a0d0a9620a52" autoload="false"></script>
 <script>
     // document.addEventListener("DOMContentLoaded", function () {
 
@@ -605,6 +604,7 @@
 
     var a = parseFloat(document.querySelector('#entX').value);
     var b = parseFloat(document.querySelector('#entY').value);
+
 
     var mapContainer = document.getElementById('map'), // 지도를 표시할 div
         mapOption = {

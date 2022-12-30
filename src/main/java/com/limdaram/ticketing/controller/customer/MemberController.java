@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("/member")
 @Log4j2
 @RequiredArgsConstructor
-public class memberController {
+public class MemberController {
 
     @GetMapping("/login")
     public void login(@RequestParam(value = "error", required = false) String error,

@@ -4,12 +4,14 @@
 
 <%@ attribute name="active" %>
 
-<link rel="stylesheet" href="../css/all.min.css">
+<c:set var="path" value="${pageContext.request.contextPath}" />
+<link rel="stylesheet" href="../fontawesome/css/all.min.css">
 <!-- https://fontawesome.com/ -->
 <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
 <!-- https://fonts.google.com/ -->
-<link href="../css/bootstrap.min.css" rel="stylesheet">
-<link href="../css/templatemo-xtra-blog.css" rel="stylesheet">
+<link href="${path}/css/bootstrap.min.css" rel="stylesheet">
+<link href="${path}/css/templatemo-xtra-blog.css" rel="stylesheet">
+
 
 <style>
     .effect-lily img {
@@ -65,31 +67,36 @@
             <i class="fas fa-bars"></i>
         </button>
         <div style="margin-bottom: auto" class="tm-site-header">
-            <div class="mb-3 mx-auto tm-site-logo"><img src="/oo.ico"/></div>
+            <c:url value="/oo.ico" var="ico"/>
+            <div class="mb-3 mx-auto tm-site-logo"><img src="${ico}"/></div>
             <h1 class="text-center"><strong>A</strong> <strong>R</strong>aboza <strong>T</strong>eam</h1>
         </div>
         <div>
             <div style="margin-bottom: 30px" class="tm-mb-65">
                 <div>
                     <sec:authentication property="name" var="username"/>
-                        <p style="color:white; margin-bottom: 0px; margin-top: 30px">
-                            <i class="fa-regular fa-face-grin-wide"></i>
-                            ${username}님
-                        </p>
-                        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-                            <div style="width: auto">
-                                <a style="color: white" class="font-weight-light" href="/customer/get?customerId=${username}">내정보</a> |
-<%--                                <a style="color: white" class="font-weight-light" href="/customer/reservation">예약확인</a> --%>
-                                <a style="color: white" href="/logout">로그아웃</a>
-                            </div>
+                    <p style="color:white; margin-bottom: 0px; margin-top: 30px">
+                        <i class="fa-regular fa-face-grin-wide"></i>
+                        ${username}님
+                    </p>
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                        <div style="width: auto">
+                            <c:url value="/customer/get" var="get">
+                                <c:param name="customerId" value="${username}"/>
+                            </c:url>
+                            <c:url value="/logout" var="logout"/>
+                            <a style="color: white" class="font-weight-light" href="${get}">내정보</a> |
+                            <a style="color: white" href="${logout}">로그아웃</a>
                         </div>
+                    </div>
                 </div>
             </div>
         </div>
         <nav class="tm-nav" id="tm-nav">
             <ul>
+                <c:url value="/content/list" var="contentList"/>
                 <li class="tm-nav-item">
-                    <a href="/content/list" class="tm-nav-link">
+                    <a href="${contentList}" class="tm-nav-link">
                         <i class="fas fa-home"></i>
                         전시회
                     </a>
@@ -97,7 +104,8 @@
                 <sec:authentication property="name" var="username"/>
                 <c:if test="${'admin' == username}">
                     <li class="tm-nav-item">
-                        <a href="/content/register" class="tm-nav-link">
+                        <c:url value="/content/register" var="contentRegister"/>
+                        <a href="${contentRegister}" class="tm-nav-link">
                             <i class="fas fa-pen"></i>
                             게시물 작성
                         </a>
@@ -106,7 +114,8 @@
                 <sec:authentication property="name" var="username"/>
                 <c:if test="${'admin' == username}">
                     <li class="tm-nav-item">
-                        <a href="/admin/customerManage" class="tm-nav-link">
+                        <c:url value="/admin/customerManage" var="customerManage"/>
+                        <a href="${customerManage}" class="tm-nav-link">
                             <i class="fa-regular fa-address-card"></i>
                             회원 정보 관리
                         </a>
@@ -115,14 +124,16 @@
                 <sec:authentication property="name" var="username"/>
                 <c:if test="${'admin' == username}">
                     <li class="tm-nav-item">
-                        <a href="/admin/customerList" class="tm-nav-link">
+                        <c:url value="/admin/customerList" var="customerList"/>
+                        <a href="${customerList}" class="tm-nav-link">
                             <i class="fa-solid fa-list-ul"></i>
                             회원 목록
                         </a>
                     </li>
                 </c:if>
                 <li class="tm-nav-item">
-                    <a href="/admin/about" class="tm-nav-link">
+                    <c:url value="/admin/about" var="about"/>
+                    <a href="${about}" class="tm-nav-link">
                         <i class="fas fa-users"></i>
                         About
                     </a>
@@ -176,35 +187,30 @@
 <script>
     // Get the button:
     let mybutton = document.getElementById("myBtn");
-
     // When the user scrolls down 20px from the top of the document, show the button
     window.onscroll = function () {
         scrollFunction()
     };
-
     function hiddenFunction() {
         if (document.body.scrollLeft > 1300 || document.documentElement.scrollTop > 1300) {
             mybutton.style.display = "block";
-        } else{
+        } else {
             mybutton.style.display = "none";
         }
     }
-
     function scrollFunction() {
         if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
             mybutton.style.display = "block";
-        } else{
+        } else {
             mybutton.style.display = "none";
         }
     }
-
     // When the user clicks on the button, scroll to the top of the document
     function topFunction() {
         document.body.scrollTop = 0; // For Safari
         document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
     }
-
 </script>
 
-<script src="../js/jquery.min.js"></script>
-<script src="../js/templatemo-script.js"></script>
+<script src="${path}/js/jquery.min.js"></script>
+<script src="${path}/js/templatemo-script.js"></script>

@@ -27,60 +27,62 @@
     <h2 style="font-family: 'LINESeedKR-Bd'">통합 개발 환경</h2>
     <table class="table">
         <thead>
-            <tr style="font-family: 'LINESeedKR-Bd'">
-                <th>항목</th>
-                <th>세부내용</th>
-            </tr>
+        <tr style="font-family: 'LINESeedKR-Bd'">
+            <th>항목</th>
+            <th>세부내용</th>
+        </tr>
         </thead>
-        <tbody >
-            <tr class="tm-h3 mb-3">
-                <th>Cloud Service Provider</th>
-                <th>AWS</th>
-            </tr>
-            <tr class="tm-h3 mb-3">
-                <th>Cloud Native</th>
-                <th>EC2 / S3 / RDS</th>
-            </tr>
-            <tr class="tm-h3 mb-3">
-                <th>Database</th>
-                <th>MariaDB / MySQL</th>
-            </tr>
-            <tr class="tm-h3 mb-3">
-                <th>Front-end</th>
-                <th>HTML / CSS / Javascript / JSP / JSTL / AJAX / JSON / EL</th>
-            </tr>
-            <tr class="tm-h3 mb-3">
-                <th>Back-end</th>
-                <th>Java / Spring Boot</th>
-            </tr>
-            <tr class="tm-h3 mb-3">
-                <th>Build Tool</th>
-                <th>Gradle</th>
-            </tr>
-            <tr class="tm-h3 mb-3">
-                <th>Library</th>
-                <th>Springboot-mail / springboot-security / OAuth2 / springboot-web / lombok / log4j2 / springboot-Devtools / </th>
-            </tr>
-            <tr class="tm-h3 mb-3">
-                <th>VCS</th>
-                <th>git / github</th>
-            </tr>
-            <tr class="tm-h3 mb-3">
-                <th>IDE</th>
-                <th>Intellij / Visual Studio Code</th>
-            </tr>
-            <tr class="tm-h3 mb-3">
-                <th>Server</th>
-                <th>Apache Tomcat</th>
-            </tr>
-            <tr class="tm-h3 mb-3">
-                <th>O/S</th>
-                <th>MS Windows 10 / MAC </th>
-            </tr>
-            <tr class="tm-h3 mb-3">
-                <th>Test Browser</th>
-                <th>Explorer / Chrome / Firefox / Safari</th>
-            </tr>
+        <tbody>
+        <tr class="tm-h3 mb-3">
+            <th>Cloud Service Provider</th>
+            <th>AWS</th>
+        </tr>
+        <tr class="tm-h3 mb-3">
+            <th>Cloud Native</th>
+            <th>EC2 / S3 / RDS</th>
+        </tr>
+        <tr class="tm-h3 mb-3">
+            <th>Database</th>
+            <th>MariaDB / MySQL</th>
+        </tr>
+        <tr class="tm-h3 mb-3">
+            <th>Front-end</th>
+            <th>HTML / CSS / Javascript / JSP / JSTL / AJAX / JSON / EL</th>
+        </tr>
+        <tr class="tm-h3 mb-3">
+            <th>Back-end</th>
+            <th>Java / Spring Boot</th>
+        </tr>
+        <tr class="tm-h3 mb-3">
+            <th>Build Tool</th>
+            <th>Gradle</th>
+        </tr>
+        <tr class="tm-h3 mb-3">
+            <th>Library</th>
+            <th>Springboot-mail / springboot-security / OAuth2 / springboot-web / lombok / log4j2 / springboot-Devtools
+                /
+            </th>
+        </tr>
+        <tr class="tm-h3 mb-3">
+            <th>VCS</th>
+            <th>git / github</th>
+        </tr>
+        <tr class="tm-h3 mb-3">
+            <th>IDE</th>
+            <th>Intellij / Visual Studio Code</th>
+        </tr>
+        <tr class="tm-h3 mb-3">
+            <th>Server</th>
+            <th>Apache Tomcat</th>
+        </tr>
+        <tr class="tm-h3 mb-3">
+            <th>O/S</th>
+            <th>MS Windows 10 / MAC</th>
+        </tr>
+        <tr class="tm-h3 mb-3">
+            <th>Test Browser</th>
+            <th>Explorer / Chrome / Firefox / Safari</th>
+        </tr>
         </tbody>
     </table>
 
@@ -91,7 +93,8 @@
     <%--    JWS--%>
     <div class="col-lg-6 tm-mb-60 tm-person-col">
         <div class="media tm-person">
-            <img src="/JWS.png" width="200" height="300" class="img-fluid" style="margin-left: 0">
+            <c:url value="/static/JWS.png" var="jws"/>
+            <img src="${jws}" width="200" height="300" class="img-fluid" style="margin-left: 0">
         </div>
         <div class="media-body">
             <h2 style="margin-top: 30px" class="tm-color-primary tm-post-title mb-2">Jung Won Sik</h2>
@@ -107,7 +110,8 @@
     <%--    LSG--%>
     <div class="col-lg-6 tm-mb-60 tm-person-col">
         <div class="media tm-person">
-            <img src="/LSG.png" width="230" height="330" class="img-fluid">
+            <c:url value="/static/LSG.png" var="lsg"/>
+            <img src="${lsg}" width="230" height="330" class="img-fluid">
         </div>
         <div class="media-body">
             <h2 class="tm-color-primary tm-post-title mb-2">Lim Seong Gyu</h2>
@@ -122,7 +126,8 @@
     <%--    LCE--%>
     <div class="col-lg-6 tm-mb-60 tm-person-col">
         <div class="media tm-person">
-            <img src="/LCE.png" width="200" height="300" class="img-fluid mr-4">
+            <c:url value="/static/LCE.png" var="lce"/>
+            <img src="${lce}" width="200" height="300" class="img-fluid mr-4">
         </div>
         <div class="media-body">
             <h2 style="margin-top: 30px" class="tm-color-primary tm-post-title mb-2">Lim Chae Eun</h2>
@@ -138,7 +143,8 @@
     <%--    HHJ--%>
     <div class="col-lg-6 tm-mb-60 tm-person-col">
         <div class="media tm-person">
-            <img src="/HHJ.png" width="150" height="240" class="img-fluid mr-3 ml-5">
+            <c:url value="/static/HHJ.png" var="hhj"/>
+            <img src="${hhj}" width="150" height="240" class="img-fluid mr-3 ml-5">
         </div>
         <div class="media-body ml-4">
             <h2 style="margin-top: 30px" class="tm-color-primary tm-post-title mb-2">Ha Hyeon Jong</h2>

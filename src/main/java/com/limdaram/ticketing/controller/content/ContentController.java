@@ -50,6 +50,7 @@ public class ContentController {
 
         int cnt = service.register(content, file1, file2);
 
+        System.out.println("controlloer file1 : " + file1);
         if (cnt == 1) {
             rttr.addFlashAttribute("message", "상품 등록 완료");
         } else {
@@ -60,7 +61,11 @@ public class ContentController {
     }
 
     @GetMapping("list")
-    public void list(Model model, ContentDto content) {
+    public void list(
+//            @RequestParam(name = "idx", defaultValue = "0") long Idx,
+            Model model,
+            ContentDto content
+    ) {
         List<ContentDto> list = service.listContent(content);
 
         model.addAttribute("contentList", list);

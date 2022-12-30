@@ -8,6 +8,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@taglib prefix="my" tagdir="/WEB-INF/tags" %>
+<c:set var="path" value="${pageContext.request.contextPath}" />
 
 <html>
 <head>
@@ -23,8 +24,8 @@
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
           integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <link href="../css/templatemo-xtra-blog.css" rel="stylesheet">
+    <link href="${path}/css/bootstrap.min.css" rel="stylesheet">
+    <link href="${path}/css/templatemo-xtra-blog.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.8.0/proj4.js" integrity="sha512-ha3Is9IgbEyIInSb+4S6IlEwpimz00N5J/dVLQFKhePkZ/HywIbxLeEu5w+hRjVBpbujTogNyT311tluwemy9w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
@@ -240,7 +241,7 @@
     </style>
 </head>
 <body>
-<div class="container-md" style="max-width: 900px;min-width: 500px;overflow-x:scroll">
+<div class="container-md" style="max-width: 900px;min-width: 300px;overflow-x:scroll">
     <div class="row mt-5"style="">
         <div class="col" style="border: 30px solid #c6f1f1; padding: 90px">
             <h1 style="font-family: 'LINESeedKR-Bd';">상품 등록

@@ -43,6 +43,7 @@ public class ContentService {
 
         if (file1 != null && file1.getSize() > 0) {
 
+            System.out.println("service File1 : " + file1);
             String file1Name = file1.getOriginalFilename();
             file1Name = file1Name.substring(file1Name.lastIndexOf("\\")+1);
             System.out.println("only file name : " + file1Name);
@@ -107,7 +108,9 @@ public class ContentService {
     }
 
     // 총 게시물 개수 확인
-    public List<ContentDto> listContent(ContentDto contentDto) {
+    public List<ContentDto> listContent(
+//            long Idx,
+                                        ContentDto contentDto) {
         int countAll = mapper.countAll();
         contentDto.setCountContent(countAll);
 

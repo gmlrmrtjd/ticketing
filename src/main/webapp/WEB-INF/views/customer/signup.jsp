@@ -1,6 +1,8 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="my" tagdir="/WEB-INF/tags" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<c:set var="path" value="${pageContext.request.contextPath}" />
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -12,11 +14,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
           integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
-<%--    <link href="../css/bootstrap.min.css" rel="stylesheet">--%>
-<%--    <link href="../css/templatemo-xtra-blog.css" rel="stylesheet">--%>
+    <%--    <link href="../css/bootstrap.min.css" rel="stylesheet">--%>
+    <%--    <link href="../css/templatemo-xtra-blog.css" rel="stylesheet">--%>
     <style>
         body {
-            background-image: url("/back.jpg");
+            background-image: url("${path}/back.jpg");
         }
 
         /*글씨체*/
@@ -53,7 +55,8 @@
     <div class="row mt-5 mb-5">
         <h1 style="color: white; font-family: 'LINESeedKR-Bd'">회원가입</h1>
         <div class="col card align-self-center" style="border: white 5px solid">
-            <form action="" method="post" id="formId" name="form">
+            <c:url value="/customer/signup" var="signup"/>
+            <form action="${signup}" method="post" id="formId" name="form">
 
                 <div class="mb-3">
                     <label for="" class="form-label" style="margin-top: 30px; font-family: 'LINESeedKR-Bd'">
@@ -272,15 +275,15 @@
             .then(res => res.json())
             .then(result => {
                 document.querySelector("#agreementEmailText").innerText = document.getElementById("agreementEmailText");
-                    if (result == 1) {
-                        document.getElementById("agreementEmailText").innerText = "인증 성공!"
-                        document.getElementById("agreementEmailText").removeAttribute("style");
-                        document.getElementById("agreementEmailButton").removeAttribute("disabled");
+                if (result == 1) {
+                    document.getElementById("agreementEmailText").innerText = "인증 성공!"
+                    document.getElementById("agreementEmailText").removeAttribute("style");
+                    document.getElementById("agreementEmailButton").removeAttribute("disabled");
 
-                    } else {
-                        document.getElementById("agreementEmailText").innerText = "인증 실패 - 인증코드를 다시 확인해주세요"
-                        document.getElementById("agreementEmailText").setAttribute("style", "color:red");
-                    }
+                } else {
+                    document.getElementById("agreementEmailText").innerText = "인증 실패 - 인증코드를 다시 확인해주세요"
+                    document.getElementById("agreementEmailText").setAttribute("style", "color:red");
+                }
             })
     })
 
@@ -539,7 +542,7 @@
     function goPopup() {
         // 주소검색을 수행할 팝업 페이지를 호출합니다.
         // 호출된 페이지(jusopopup.jsp)에서 실제 주소검색URL(https://business.juso.go.kr/addrlink/addrLinkUrl.do)를 호출하게 됩니다.
-        var pop = window.open("/customer/jusoPopup", "pop", "width=570,height=420, scrollbars=yes, resizable=yes");
+        var pop = window.open("/prj2/customer/jusoPopup", "pop", "width=570,height=420, scrollbars=yes, resizable=yes");
 
         // 모바일 웹인 경우, 호출된 페이지(jusopopup.jsp)에서 실제 주소검색URL(https://business.juso.go.kr/addrlink/addrMobileLinkUrl.do)를 호출하게 됩니다.
         //var pop = window.open("/popup/jusoPopup.jsp","pop","scrollbars=yes, resizable=yes");

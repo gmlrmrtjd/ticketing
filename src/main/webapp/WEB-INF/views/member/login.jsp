@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ taglib prefix="my" tagdir="/WEB-INF/tags" %>
+<c:set var="path" value="${pageContext.request.contextPath}" />
 
 <!doctype html>
 <html lang="en">
@@ -15,11 +16,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
           integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <link href="../css/templatemo-xtra-blog.css" rel="stylesheet">
+    <link href="${path}/css/bootstrap.min.css" rel="stylesheet">
+    <link href="${path}/css/templatemo-xtra-blog.css" rel="stylesheet">
     <style>
         body {
-            background-image: url("/back.jpg");
+            background-image: url('${path}/back.jpg');
         }
 
         /*글씨체*/
@@ -58,13 +59,8 @@
             LOGIN
         </div>
         <div class="card-body">
-            <%--            <c:if test="${param.logout != null}">--%>
-            <%--                <div class="alert alert-danger">--%>
-            <%--                    <i class="fa-solid fa-triangle-exclamation"></i>--%>
-            <%--                        로그아웃 되었습니다--%>
-            <%--                </div>--%>
-            <%--            </c:if>--%>
-            <form id="registerForm" action="/member/login" method="post">
+            <c:url value="/member/login" var="login"/>
+            <form id="registerForm" action="${login}" method="post">
                 <div class="input-group mb-3">
                     <span style="border-color: #0cc" class="input-group-text">
                         <i class="fa-solid fa-user"></i>
@@ -85,24 +81,28 @@
                     </label>
                 </div>
                 <div>
-                    <a href="/oauth2/authorization/kakao" style="text-decoration: none; margin-left: 22px;">
+                    <c:url value="/oauth2/authorization/kakao" var="kakao"/>
+                    <a href="${kakao}" style="text-decoration: none; margin-left: 22px;">
                         <c:url value="/kakaoLogo.png" var="kakaoLogoLink"/>
                         <img src="${kakaoLogoLink}" alt="">
                     </a>
 
-                    <a href="/oauth2/authorization/google" style="text-decoration: none; margin-left: 22px;">
+                    <c:url value="/oauth2/authorization/google" var="google"/>
+                    <a href="${google}" style="text-decoration: none; margin-left: 22px;">
                         <c:url value="/googleLogo.png" var="googleLogoLink"/>
                         <img src="${googleLogoLink}" alt="">
                     </a>
 
-                    <a href="/oauth2/authorization/naver">
+                    <c:url value="/oauth2/authorization/naver" var="naver"/>
+                    <a href="${naver}">
                         <c:url value="/naverLogo.png" var="naverLogoLink"/>
                         <img src="${naverLogoLink}" alt="" style="height: 48px; margin-left: 22px;">
                     </a>
                 </div>
                 <div class="my-4">
                     <div style="font-family: 'LINESeedKR-Bd'; text-align: center" class="float-first">
-                        회원이 아니신가요? <a href="/customer/signup">회원가입</a>
+                        <c:url value="/customer/signup" var="signup"/>
+                        회원이 아니신가요? <a href="${signup}">회원가입</a>
                     </div>
                     <br>
                     <div class="float-end">
