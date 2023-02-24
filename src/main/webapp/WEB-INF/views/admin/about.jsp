@@ -93,7 +93,7 @@
     <%--    JWS--%>
     <div class="col-lg-6 tm-mb-60 tm-person-col">
         <div class="media tm-person">
-            <c:url value="/static/JWS.png" var="jws"/>
+            <c:url value="/JWS.png" var="jws"/>
             <img src="${jws}" width="200" height="300" class="img-fluid" style="margin-left: 0">
         </div>
         <div class="media-body">
@@ -110,7 +110,7 @@
     <%--    LSG--%>
     <div class="col-lg-6 tm-mb-60 tm-person-col">
         <div class="media tm-person">
-            <c:url value="/static/LSG.png" var="lsg"/>
+            <c:url value="/LSG.png" var="lsg"/>
             <img src="${lsg}" width="230" height="330" class="img-fluid">
         </div>
         <div class="media-body">
@@ -126,7 +126,7 @@
     <%--    LCE--%>
     <div class="col-lg-6 tm-mb-60 tm-person-col">
         <div class="media tm-person">
-            <c:url value="/static/LCE.png" var="lce"/>
+            <c:url value="/LCE.png" var="lce"/>
             <img src="${lce}" width="200" height="300" class="img-fluid mr-4">
         </div>
         <div class="media-body">
@@ -143,7 +143,7 @@
     <%--    HHJ--%>
     <div class="col-lg-6 tm-mb-60 tm-person-col">
         <div class="media tm-person">
-            <c:url value="/static/HHJ.png" var="hhj"/>
+            <c:url value="/HHJ.png" var="hhj"/>
             <img src="${hhj}" width="150" height="240" class="img-fluid mr-3 ml-5">
         </div>
         <div class="media-body ml-4">

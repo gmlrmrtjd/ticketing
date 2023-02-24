@@ -421,8 +421,8 @@
                         <%-- <h2 class="tm-mb-40 tm-post-title tm-color-primary">Related Posts</h2>--%>
                         <figcaption style="font-family: LINESeedKR-Bd" class="tm-color-primary">장소</figcaption>
                         <p><a href="#popup-info-place" role="button" type="text" value="" class="mapPopup"
-                              readonly style="color: #999;">${content.contentRegion} <i
-                                class="fa-regular fa-map"></i></a></p>
+                              readonly style="color: #999;">${content.contentRegion}
+                            <i class="fa-regular fa-map"></i></a></p>
                         <figcaption style="font-family: LINESeedKR-Bd" class="tm-color-primary">기간</figcaption>
                         <p>${content.contentStartDate} ~ ${content.contentEndDate}</p>
                         <figcaption style="font-family: LINESeedKR-Bd" class="tm-color-primary">시간</figcaption>

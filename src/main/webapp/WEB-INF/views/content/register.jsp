@@ -32,7 +32,7 @@
 
     <!-- 네이버 스마트에디터  -->
     <script type="text/javascript" src="../libs/smarteditor/js/service/HuskyEZCreator.js" charset="utf-8"></script>
-    <script type="application/json" src="/code.jquery.com/jquery-1.11.0.min.js" charset="utf-8"></script>
+<%--    <script type="applications/json" src="/code.jquery.com/jquery-1.11.0.min.js" charset="utf-8"></script>--%>
     <link rel="shortcut icon" href="#">
 
 
@@ -245,7 +245,7 @@
     <div class="row mt-5"style="">
         <div class="col" style="border: 30px solid #c6f1f1; padding: 90px">
             <h1 style="font-family: 'LINESeedKR-Bd';">상품 등록
-                <button type="button" class="btn" id="outButton" onclick="location.href='/content/list'" style="float:right;font-family: LINESeedKR-Bd;background-color: #ff4a46 !important; border-color:#FF4A46 !important;">
+                <button type="button" class="btn" id="outButton" onclick="location.href='/ticketing/content/list'" style="float:right;font-family: LINESeedKR-Bd;background-color: #ff4a46 !important; border-color:#FF4A46 !important;">
                     나가기
                 </button>
                 <button style="font-family: LINESeedKR-Bd;float:right" type="button" class="btn" id="registerConfirmButton" onclick="save();">
@@ -292,8 +292,8 @@
                         <tr>
                             <td>
                                 <%--             경위도--%>
-                                <input type="hidden" id="contentMapEntX" name="contentMapEntX" style="width:40%" value="">
-                                <input type="hidden" id="contentMapEntY" name="contentMapEntY" style="width:40%" value="">
+                                <input type="hidden" id="contentMapEntX" name="contentMapEntX" style="width:40%" value="0">
+                                <input type="hidden" id="contentMapEntY" name="contentMapEntY" style="width:40%" value="0">
                             </td>
                         </tr>
                         </tbody>
@@ -588,11 +588,23 @@
     };
 
 
-</script>
-<script>
-    // 파일 체크 실행
+    // 확장자, 용량 체크 함수 실행
     var MaxSize = 10;
     var FileExt = "PNG, JPG, JPEG, GIF";
+
+    document.getElementById('file1').onchange = function () {
+
+        if (this.value != "") {
+
+            var extPlan = FileExt;
+            var checkSize = 1024 * 1024 * MaxSize;
+
+            if (!checkFile($('#file1'), extPlan) | !checkFileSize($('#file1'), checkSize)) {
+                this.value = "";
+                return;
+            }
+        }
+    };
 
     document.getElementById('file2').onchange = function () {
 
@@ -607,6 +619,10 @@
             }
         }
     };
+
+</script>
+<script>
+
 </script>
 
 
@@ -641,7 +657,7 @@
 
     function goPopup() {
         // 호출된 페이지(jusopopup.jsp)에서 실제 주소검색URL(https://business.juso.go.kr/addrlink/addrCoordUrl.do)를 호출하게 됩니다.
-        var pop = window.open("/content/jusoPopup", "pop", "width=570,height=420, scrollbars=yes, resizable=yes");
+        var pop = window.open("/ticketing/content/jusoPopup", "pop", "width=570,height=420, scrollbars=yes, resizable=yes");
     }
 
     function jusoCallBack(roadFullAddr, roadAddrPart1, addrDetail, roadAddrPart2, engAddr, jibunAddr, zipNo, admCd, rnMgtSn, bdMgtSn

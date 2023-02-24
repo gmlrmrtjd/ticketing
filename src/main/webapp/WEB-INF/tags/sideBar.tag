@@ -5,7 +5,7 @@
 <%@ attribute name="active" %>
 
 <c:set var="path" value="${pageContext.request.contextPath}" />
-<link rel="stylesheet" href="../fontawesome/css/all.min.css">
+<link rel="stylesheet" href="${path}/fontawesome/css/all.min.css">
 <!-- https://fontawesome.com/ -->
 <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
 <!-- https://fonts.google.com/ -->

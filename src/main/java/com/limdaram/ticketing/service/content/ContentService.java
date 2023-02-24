@@ -43,10 +43,8 @@ public class ContentService {
 
         if (file1 != null && file1.getSize() > 0) {
 
-            System.out.println("service File1 : " + file1);
             String file1Name = file1.getOriginalFilename();
             file1Name = file1Name.substring(file1Name.lastIndexOf("\\")+1);
-            System.out.println("only file name : " + file1Name);
 
 //            String extension = file1.substring(file1.lastIndexOf("."), file1.length());
             UUID uuid = UUID.randomUUID();
@@ -78,7 +76,6 @@ public class ContentService {
 //                File folder2 = new File("/Users/sunggyu-lim/Desktop/kukbi/study/upload/ticket/content/" + content.getContentId());
                     String fileName = file.getOriginalFilename();
                     fileName = fileName.substring(fileName.lastIndexOf("\\")+1);
-                    System.out.println("only file name : " + fileName);
 
 //            String extension = file1.substring(file1.lastIndexOf("."), file1.length());
                     UUID uuid = UUID.randomUUID();
@@ -103,7 +100,6 @@ public class ContentService {
                     uploadDetailFiles(content, file, fileName);
                 }
             }
-//        System.out.println(content);
         return cnt;
     }
 
@@ -119,10 +115,6 @@ public class ContentService {
 
     public ContentDto get(int contentId) {
         return mapper.select(contentId);
-    }
-
-    public List<ContentDto> selectContent() {
-        return mapper.selectContent();
     }
 
     //    컨텐츠수정
@@ -153,7 +145,6 @@ public class ContentService {
         if (addPosterFile != null && addPosterFile.getSize() > 0) {
             // 1. 포스터 파일 제거 먼저 실행
 //            String posterName = mapper.select(contentId).getContentPosterName();
-//            System.out.println("posterName: " + posterName);
 
 //            // 저장소에서 제거
 //            String path = "/Users/sunggyu-lim/Desktop/kukbi/study/upload/ticket/content/" + contentId + "/" + posterName;
@@ -161,7 +152,6 @@ public class ContentService {
 //            file.delete();
 
             String deletePosterName = mapper.select(contentId).getContentPosterName();
-//            System.out.println("contentPosterName: " + deletePosterName);
 //            if (removePosterName != null) {
                 // s3 저장소에서 파일 제거
                 removePosterFile(contentId, deletePosterName);
@@ -172,7 +162,6 @@ public class ContentService {
             // 파일 이름 uuid로 설정
             String fileName = addPosterFile.getOriginalFilename();
             fileName = fileName.substring(fileName.lastIndexOf("\\")+1);
-            System.out.println("only file name : " + fileName);
             UUID uuid = UUID.randomUUID();
             fileName = uuid.toString() + "_" + fileName;
 
@@ -211,11 +200,9 @@ public class ContentService {
 
                 // 2. contentDetail 테이블에서 record 지우기
                 mapper.deleteByContentIdAndDetailName(contentId, removeDetailName);
-                System.out.println("디테일 선택 파일 삭제");
 //                // 2. 저장소에 있는 실제 파일 지우기
 //                String path = "/Users/sunggyu-lim/Desktop/kukbi/study/upload/ticket/content/" + contentId + "/" + removeDetailName;
 //                File file = new File(path);
-////                System.out.println("path: " + file);
 //                file.delete();
             }
         }
@@ -226,12 +213,10 @@ public class ContentService {
                     // 파일 테이블에 파일명 추가
                     String fileName = DetailFile.getOriginalFilename();
                     fileName = fileName.substring(fileName.lastIndexOf("\\")+1);
-                    System.out.println("only file name : " + fileName);
                     UUID uuid = UUID.randomUUID();
                     fileName = uuid.toString() + "_" + fileName;
 
                     mapper.insertFile2(content.getContentId(), fileName);
-                    System.out.println("디테일 파일 추가");
 
                     // s3 저장소에 디테일 파일 추가
                     uploadDetailFiles(content, DetailFile, fileName);
@@ -297,7 +282,6 @@ public class ContentService {
     }
 
     private void removePosterFile(int contentId, String removePosterName) {
-//        System.out.println("포스터네임" + removePosterName);
         String key = "prj1/board/" + contentId + "/" + removePosterName;
         DeleteObjectRequest deleteObjectRequest = DeleteObjectRequest.builder()
                 .bucket(bucketName)
@@ -369,7 +353,6 @@ public class ContentService {
 
     public int reservation(reservationDto reservDto) {
 
-        System.out.println("service DTO: " + reservDto);
         int cnt = mapper.reserv(reservDto);
         return cnt;
     }

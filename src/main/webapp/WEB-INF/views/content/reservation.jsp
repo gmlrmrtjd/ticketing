@@ -581,6 +581,7 @@
             }
           }
         }
+
         //시간표 초기화
         function tableinit(){
           timeTableMaker(selectedMonth, selectedDate);
@@ -608,7 +609,7 @@
             selectedFinalTime = 0*1;
         }
 
-        //체크박스 이벤트
+        //예약자 정보 체크박스 이벤트
         function checkboxEvent(checkbox){
           const phoneForm = document.getElementById("userPhone");
           const emailForm = document.getElementById("userEmail");

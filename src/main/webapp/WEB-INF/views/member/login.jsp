@@ -57,6 +57,7 @@
     <div class="card align-self-center">
         <div style="color: #0CC; font-family: 'LINESeedKR-Bd'" class="card-header">
             LOGIN
+            <h6>관리자ID: admin    비번: 1111</h6>
         </div>
         <div class="card-body">
             <c:url value="/member/login" var="login"/>

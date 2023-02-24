@@ -33,7 +33,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!-- 네이버 스마트에디터  -->
     <script type="text/javascript" src="${path}/libs/smarteditor/js/service/HuskyEZCreator.js" charset="utf-8"></script>
-    <script type="application/json" src="${path}/code.jquery.com/jquery-1.11.0.min.js" charset="utf-8"></script>
+<%--    <script type="application/json" src="${path}/code.jquery.com/jquery-1.11.0.min.js" charset="utf-8"></script>--%>
     <link rel="shortcut icon" href="#">
 
     <title>전시회 수정</title>
@@ -244,7 +244,7 @@
             <h1 style="font-family: 'LINESeedKR-Bd'">
                 <%--                ${content.contentName}--%>
                 전시회 정보 수정
-                <button type="button" class="btn" id="outButton" onclick="location.href='/content/get?contentId=${content.contentId}'" style="float:right;font-family: LINESeedKR-Bd;background-color: #ff4a46 !important; border-color:#FF4A46 !important;">
+                <button type="button" class="btn" id="outButton" onclick="location.href='/ticketing/content/get?contentId=${content.contentId}'" style="float:right;font-family: LINESeedKR-Bd;background-color: #ff4a46 !important; border-color:#FF4A46 !important;">
                     나가기
                 </button>
                 <button style="font-family: 'LINESeedKR-Bd';float:right; border-color: #0cc" type="submit" class="btn btn-ico"
@@ -435,6 +435,7 @@
                     </div>
                 </div>
 
+                <%-- 디테일 이미지--%>
                 <div style="margin-top: 1rem;">
                     <label style="font-family: 'LINESeedKR-Bd'" for="" class="form-label">
                         세부내용
@@ -646,12 +647,23 @@
         return check;
     };
 
-
-</script>
-<script>
-    // 파일 체크 실행
+    // 파일 확장자, 용량 체크 실행
     var MaxSize = 10;
     var FileExt = "PNG, JPG, JPEG, GIF";
+
+    document.getElementById('addPosterFile').onchange = function () {
+
+        if (this.value != "") {
+
+            var extPlan = FileExt;
+            var checkSize = 1024 * 1024 * MaxSize;
+
+            if (!checkFile($('#addPosterFile'), extPlan) | !checkFileSize($('#addPosterFile'), checkSize)) {
+                this.value = "";
+                return;
+            }
+        }
+    };
 
     document.getElementById('addDetailFiles').onchange = function () {
 
@@ -706,7 +718,7 @@
     // 지도 팝업창으로 여는 함수
     function goPopup(){
         // 호출된 페이지(jusopopup.jsp)에서 실제 주소검색URL(https://business.juso.go.kr/addrlink/addrCoordUrl.do)를 호출하게 됩니다.
-        var pop = window.open("/content/jusoPopup","pop","width=570,height=420, scrollbars=yes, resizable=yes");
+        var pop = window.open("/ticketing/content/jusoPopup","pop","width=570,height=420, scrollbars=yes, resizable=yes");
     }
     function jusoCallBack(roadFullAddr,roadAddrPart1,addrDetail,roadAddrPart2,engAddr, jibunAddr, zipNo, admCd, rnMgtSn, bdMgtSn
         , detBdNmList, bdNm, bdKdcd, siNm, sggNm, emdNm, liNm, rn, udrtYn, buldMnnm, buldSlno, mtYn, lnbrMnnm, lnbrSlno
